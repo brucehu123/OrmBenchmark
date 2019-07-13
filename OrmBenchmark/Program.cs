@@ -42,7 +42,7 @@ namespace OrmBenchmark
             OrderDetail[] deleteDetails;
             Customer[] updateCustomes;
             Warehouse[] deleteWarehouse;
-            using (var db = new MegoContext())
+            using (var db = new EFCoreContext())
             {
                 customeIds = Tuple.Create(db.Customers.Min(a => a.Id), db.Customers.Max(a => a.Id));
                 orderIds = Tuple.Create(db.Orders.Min(a => a.Id), db.Orders.Max(a => a.Id));
@@ -138,10 +138,7 @@ namespace OrmBenchmark
                 ef.InitialData();
                 ef.SaveChanges();
             }
-            //using (var db = new Models.MegoContext())
-            //{
-            //    db.InitialData();
-            //}
+
         }
     }
 

@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using mego = Caredev.Mego.DataAnnotations;
 using ef = System.ComponentModel.DataAnnotations;
 using ef1 = System.ComponentModel.DataAnnotations.Schema;
 using SqlSugar;
 
 namespace OrmBenchmark.Models
 {
-    [mego.Table("OrderDetails")]
     [ef1.Table("OrderDetails")]
     [SugarTable("OrderDetails")]
     public class OrderDetail
     {
 
-        [mego.Key, mego.Identity]
         [ef.Key]
         public int Id { get; set; }
 
@@ -31,11 +28,9 @@ namespace OrmBenchmark.Models
         public int Discount { get; set; }
 
         [SugarColumn(IsIgnore = true)]
-        [mego.ForeignKey("OrderId", "Id")]
         public virtual Order Order { get; set; }
 
         [SugarColumn(IsIgnore = true)]
-        [mego.ForeignKey("ProductId", "Id")]
         public virtual Product Product { get; set; }
     }
 }
