@@ -19,7 +19,7 @@ namespace OrmBenchmark
 
         static void Main(string[] args)
         {
-            //InitialDatabase();
+            InitialDatabase();
             Tuple<int, int> customeIds;
             Tuple<int, int> orderIds;
             var insertCustomes = Enumerable.Range(100000, TestInsertCount).Select(i => new Customer()
